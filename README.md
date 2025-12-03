@@ -429,31 +429,3 @@ Then:
 
 This project is best viewed as a **research and prototyping tool**, not as a production-ready auto-trading system without further validation.
 
----
-
-## 10. How to Explain This to a Client (Simple Version)
-
-You can summarize the system to a client like this:
-
-1. **We use 3 timeframes**: 15-minute, 1-hour, and 4-hour SBI price data.
-2. The model looks at:
-
-   * Candle shapes (wicks, bodies, volatility)
-   * Indicators (RSI, MACD, EMA, ATR)
-   * 15-minute microstructure inside each 1-hour bar
-   * 4-hour trend context
-3. It has been trained to learn **how prices typically move in the next hour**.
-4. For any new SBI data, the app:
-
-   * Rebuilds the same type of features
-   * Uses the trained ML model to predict **next 1-hour return**
-   * Converts predictions into BUY/SELL decisions using one of three methods
-     (fixed threshold, quantiles, or terciles).
-5. We then simulate trades using those signals and show:
-
-   * Total profit/loss
-   * Win rate
-   * Risk (drawdown)
-   * Equity curve over time
-   * Full trade list and all signals
-
